@@ -6,7 +6,7 @@
  * Date: 09.05.17
  * Time: 20:39
  */
-class db
+class Db
 {
     private static $_instance = null;
     private $_pdo,
@@ -167,10 +167,6 @@ class db
                 $sqlToBind = $this->createDeleteSql( $table, $where);
                 break;
         }
-
-
-
-
         return $sqlToBind;
     }
 
@@ -361,6 +357,40 @@ class db
      * 3. get result
      * 4. return
      *
+     */
+
+
+
+    /*
+    Update:
+
+$db->query("update","test", array( "set" => array("book" => "potop3") ,
+    "where" => array("id" => 2)), null);
+
+
+Insert:
+
+$db->query("insert", "test", array( "into" => array("all" => array(16, "harry potter"))), null);
+
+Delete:
+
+$db->query("delete", "test", array("where" => array("id"=>7)), null);
+
+Select:
+
+$db->query("select","users", array(
+				"columns" => array("id", "login", "year", "adress"),
+				"where" => array("id" => 1, "mail" => "'mail'"),
+				"order" => array("id, adress" => "desc", "name" => "asc")),
+    	null);
+
+Select *
+
+$db->query("select","users", array( "columns" => "*",
+    null,"order" => array("id" => "desc")), null);
+
+
+
      */
 
 
